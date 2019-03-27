@@ -1,5 +1,5 @@
 {
-  "name": "create-react-library",
+  "name": "create-react-library-x",
   "version": "2.6.7",
   "description": "CLI for easily bootstrapping modern react libraries",
   "repository": "transitive-bullshit/create-react-library",
@@ -11,17 +11,7 @@
     "create-react-library": "index.js"
   },
   "scripts": {
-    "test:watch": "react-scripts test --env=jsdom",
-    "lib:build": "rollup -c",
-    "lib:start": "rollup -c -w",
-    "lib:upgrade": "yarn upgrade",
-    "examples:build": "cd example && yarn run build",
-    "examples:start": "cd example && yarn run start",
-    "examples:upgrade": "cd example && yarn upgrade",
-    "upgrade": "yarn run lib:upgrade && yarn run examples:upgrade",
-    "build": "yarn run lib:build && yarn run examples:build",
-    "start": "tmux new -s $(jq <package.json '.name') 'yarn lib:start' \\; split-window 'yarn examples:start'",
-    "deploy": "[[ -z $(git status -s) ]] && yarn run build && yarn publish && git push && gh-pages -d example/build"
+    "test": "ava -v && standard *.js lib/*.js"
   },
   "engines": {
     "node": ">=8",
